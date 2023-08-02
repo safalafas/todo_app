@@ -1,10 +1,13 @@
 const express = require('express');
 const server = express();
 
+server.set('view engine', 'ejs');
+server.set('views', process.cwd()+'/views');
+
 server.get('/', (req, res)=>{
-    res.send("Hello");
+    res.render('index', {title:'Home', message:'Hello World'});
 });
 
 server.listen(80, ()=>{
-    console.log('https://localhost');
+    console.log('http://localhost');
 });
